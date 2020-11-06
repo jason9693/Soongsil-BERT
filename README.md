@@ -1,6 +1,6 @@
-# Soongsil-BERT(KcBERT v2) : Soongsil Univ. Community BERT
+# Soongsil-BERT(KcBERT v2) 
 
-### 숭실대학교 or 대학 커뮤니티 전용 언어모델
+### Soongsil Univ. Community BERT : 숭실대학교 or 대학 커뮤니티 전용 언어모델
 
 ** Updates on 2020.11.06 **
 
