@@ -1,52 +1,33 @@
-# KcBERT: Korean comments BERT
+# Soongsil-BERT(KcBERT v2)
 
-** Updates on 2020.09.11 **
+## Soongsil Univ. Community BERT
 
-KcBERT를 Google Colab에서 TPU를 통해 학습할 수 있는 튜토리얼을 제공합니다! 아래 버튼을 눌러보세요.
+** Updates on 2020.11.06 **
 
-<a href="https://colab.research.google.com/drive/1lYBYtaXqt9S733OXdXvrvC09ysKFN30W">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-</a>
+Soongsil BERT 를 Google Colab에서 사전학습을 진행할 수 있는 튜토리얼을 제공합니다! 아래 버튼을 눌러보세요.(미완성)
 
-텍스트 분량만 전체 12G 텍스트 중 일부(144MB)로 줄여 학습을 진행합니다. 
+<a href="">  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a> : 공개 예정
 
-한국어 데이터셋/코퍼스를 좀더 쉽게 사용할 수 있는 [Korpora](https://github.com/ko-nlp/Korpora) 패키지를 사용합니다.
+토크나이징 코드 : 공개 예정
 
-** Updates on 2020.09.08 **
-
-Github Release를 통해 학습 데이터를 업로드하였습니다.
-
-다만 한 파일당 2GB 이내의 제약으로 인해 분할압축되어있습니다.
-
-아래 링크를 통해 받아주세요. (가입 없이 받을 수 있어요. 분할압축)
-
-만약 한 파일로 받고싶으시거나/Kaggle에서 데이터를 살펴보고 싶으시다면 아래의 캐글 데이터셋을 이용해주세요.
-
-- Github릴리즈: https://github.com/Beomi/KcBERT/releases/tag/TrainData_v1
-
-** Updates on 2020.08.22 **
-
-Pretrain Dataset 공개
-
-- 캐글: https://www.kaggle.com/junbumlee/kcbert-pretraining-corpus-korean-news-comments (한 파일로 받을 수 있어요. 단일파일)
-
-Kaggle에 학습을 위해 정제한(아래 `clean`처리를 거친) Dataset을 공개하였습니다!
-
-직접 다운받으셔서 다양한 Task에 학습을 진행해보세요 :) 
+Down Stream Task 학습 예제 : 공개 예정
 
 ---
 
-공개된 한국어 BERT는 대부분 한국어 위키, 뉴스 기사, 책 등 잘 정제된 데이터를 기반으로 학습한 모델입니다. 한편, 실제로 NSMC와 같은 댓글형 데이터셋은 정제되지 않았고 구어체 특징에 신조어가 많으며, 오탈자 등 공식적인 글쓰기에서 나타나지 않는 표현들이 빈번하게 등장합니다.
+공개된 한국어 BERT는 대부분 한국어 위키, 뉴스 기사, 책 등 잘 정제된 데이터를 기반으로 학습한 언어모델입니다. 한편, 실제로 NSMC와 같은 댓글형 데이터셋은 정제되지 않았고 구어체 특징에 신조어가 많으며, 오탈자 등 공식적인 글쓰기에서 나타나지 않는 표현들이 빈번하게 등장합니다.  
 
-KcBERT는 위와 같은 특성의 데이터셋에 적용하기 위해, 네이버 뉴스에서 댓글과 대댓글을 수집해, 토크나이저와 BERT모델을 처음부터 학습한 Pretrained BERT 모델입니다.
+Beomi 님의 [KcBERT](https://github.com/Beomi/KcBERT)는 위와 같은 특성의 데이터셋에 적용하기 위해, 네이버 뉴스의 댓글과 대댓글을 수집해 토크나이저와 BERT모델을 처음부터 학습한 Pretrained BERT 모델입니다. 
 
-KcBERT는 Huggingface의 Transformers 라이브러리를 통해 간편히 불러와 사용할 수 있습니다. (별도의 파일 다운로드가 필요하지 않습니다.)
+Soongsil BERT(KcBERTv2)는 대학 커뮤니티 특성에 맞는 데이터셋에 적용하기 위해, KcBERT의 데이터에 더해 대학 커뮤니티, 대학 공지사항 등의 데이터를 추가하여 처음부터 학습한 `RoBERTa모델 기반의` Pretrained BERT 모델입니다.
+
+Soongsil BERT는 Huggingface의 Transformers 라이브러리를 통해 간편히 불러와 사용할 수 있습니다. (별도의 파일 다운로드가 필요하지 않습니다.)
 
 ## How to use
 
 ### Requirements
 
-- `pytorch ~= 1.5.1`
+- `pytorch ~= 1.6.0`
 
 - `transformers ~= 3.0.1`
 - `emoji ~= 0.6.0`
@@ -55,26 +36,33 @@ KcBERT는 Huggingface의 Transformers 라이브러리를 통해 간편히 불러
 ```python
 from transformers import AutoTokenizer, AutoModelWithLMHead
 
-# Base Model (108M)
+# Small Model (220MB)
 
-tokenizer = AutoTokenizer.from_pretrained("beomi/kcbert-base")
+tokenizer = AutoTokenizer.from_pretrained("jason9693/soongsil-roberta-small")
 
-model = AutoModelWithLMHead.from_pretrained("beomi/kcbert-base")
+model = AutoModelForMaskedLM.from_pretrained("jason9693/soongsil-roberta-small")
 
-# Large Model (334M)
+# Base Model (370M)
 
-tokenizer = AutoTokenizer.from_pretrained("beomi/kcbert-large")
+tokenizer = AutoTokenizer.from_pretrained("jason9693/soongsil-roberta-base")
 
-model = AutoModelWithLMHead.from_pretrained("beomi/kcbert-large")
+model = AutoModelForMaskedLM.from_pretrained("jason9693/soongsil-roberta-base")
 ```
 
 ## Train Data & Preprocessing
 
 ### Raw Data
 
-학습 데이터는 2019.01.01 ~ 2020.06.15 사이에 작성된 **댓글 많은 뉴스** 기사들의 **댓글과 대댓글**을 모두 수집한 데이터입니다.
+학습 데이터는 KcBERT에서 사용한 데이터에 아래 항목들을 추가하여 학습을 진행하였습니다.
 
-데이터 사이즈는 텍스트만 추출시 **약 15.4GB이며, 1억1천만개 이상의 문장**으로 이뤄져 있습니다.
+1. 에브리타임 숭실대학교 게시판
+2. 숭실대학교 커뮤니티 유어슈
+3. 캠퍼스픽
+4. 숭실대학교 dcinside
+5. 숭실대학교 각 학과 공지사항
+6. 국립국어원 말뭉치 (Web, 구어체)
+
+데이터 사이즈는 텍스트만 추출시 **약 20GB이며, 2억개 이상의 문장**으로 이뤄져 있습니다.
 
 ### Preprocessing
 
@@ -102,9 +90,9 @@ PLM 학습을 위해서 전처리를 진행한 과정은 다음과 같습니다.
 
    중복적으로 쓰인 댓글을 제거하기 위해 중복 댓글을 하나로 합쳤습니다.
 
-이를 통해 만든 최종 학습 데이터는 **12.5GB, 8.9천만개 문장**입니다.
+이를 통해 만든 최종 학습 데이터는 **15GB, 1억 4천만개 문장**입니다.
 
-아래 명령어로 pip로 설치한 뒤, 아래 clean함수로 클리닝을 하면 Downstream task에서 보다 성능이 좋아집니다. (`[UNK]` 감소)
+아래 명령어로 pip로 설치한 뒤, 아래 clean함수로 클리닝을 하면 Downstream task에서 보다 성능이 좋아집니다. (`<unk>` 감소)
 
 ```bash
 pip install soynlp emoji
@@ -130,7 +118,7 @@ def clean(x):
     return x
 ```
 
-### Cleaned Data (Released on Kaggle)
+### Cleaned Data (KcBERT 데이터)
 
 원본 데이터를 위 `clean`함수로 정제한 12GB분량의 txt 파일을 아래 Kaggle Dataset에서 다운받으실 수 있습니다 :)
 
@@ -141,127 +129,115 @@ https://www.kaggle.com/junbumlee/kcbert-pretraining-corpus-korean-news-comments
 
 Tokenizer는 Huggingface의 [Tokenizers](https://github.com/huggingface/tokenizers) 라이브러리를 통해 학습을 진행했습니다.
 
-그 중 `BertWordPieceTokenizer` 를 이용해 학습을 진행했고, Vocab Size는 `30000`으로 진행했습니다.
+그 중 `ByteLevelBPETokenizer` 를 이용해 학습을 진행했고, Vocab Size는 `16000'으로 진행했습니다.
 
-Tokenizer를 학습하는 것에는 `1/10`로 샘플링한 데이터로 학습을 진행했고, 보다 골고루 샘플링하기 위해 일자별로 stratify를 지정한 뒤 햑습을 진행했습니다.
+Tokenizer를 학습하는 것에는 KcBERT데이터는 `1/10`로 샘플링한 데이터로 학습을 진행했고, 그외 데이터는 모두 사용했습니다.
 
 ## BERT Model Pretrain
 
-- KcBERT Base config
+- Soongsil BERT Small config
 
 ```json
 {
-    "max_position_embeddings": 300,
-    "hidden_dropout_prob": 0.1,
-    "pooler_size_per_head": 128,
-    "hidden_act": "gelu",
-    "initializer_range": 0.02,
-    "num_hidden_layers": 12,
-    "pooler_num_attention_heads": 12,
-    "type_vocab_size": 2,
-    "vocab_size": 30000,
-    "hidden_size": 768,
-    "attention_probs_dropout_prob": 0.1,
-    "directionality": "bidi",
-    "num_attention_heads": 12,
-    "pooler_fc_size": 768,
-    "pooler_type": "first_token_transform",
-    "pooler_num_fc_layers": 3,
-    "intermediate_size": 3072,
-    "architectures": [
-        "BertForMaskedLM"
-    ],
-    "model_type": "bert"
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "eos_token_id": 2,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 6,
+  "pad_token_id": 1,
+  "total_flos": 4.897939032867707e+19,
+  "type_vocab_size": 1,
+  "vocab_size": 16000
 }
 ```
 
-- KcBERT Large config
+- Soongsil BERT Base config
 
 ```json
 {
-    "type_vocab_size": 2,
-    "initializer_range": 0.02,
-    "max_position_embeddings": 300,
-    "vocab_size": 30000,
-    "hidden_size": 1024,
-    "hidden_dropout_prob": 0.1,
-    "model_type": "bert",
-    "directionality": "bidi",
-    "pooler_num_attention_heads": 12,
-    "pooler_fc_size": 768,
-    "pad_token_id": 0,
-    "pooler_type": "first_token_transform",
-    "layer_norm_eps": 1e-12,
-    "hidden_act": "gelu",
-    "num_hidden_layers": 24,
-    "pooler_num_fc_layers": 3,
-    "num_attention_heads": 16,
-    "pooler_size_per_head": 128,
-    "attention_probs_dropout_prob": 0.1,
-    "intermediate_size": 4096,
-    "architectures": [
-        "BertForMaskedLM"
-    ]
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "eos_token_id": 2,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "total_flos": 8.217624121867606e+19,
+  "type_vocab_size": 1,
+  "vocab_size": 16000
 }
 ```
 
-BERT Model Config는 Base, Large 기본 세팅값을 그대로 사용했습니다. (MLM 15% 등)
+Soongsil BERT Model Config는 RoBERTa Base, Large 기본 세팅값을 그대로 사용했습니다. (MLM 15%, No NSP 등)
 
-TPU `v3-8` 을 이용해 각각 3일, N일(Large는 학습 진행 중)을 진행했고, 현재 Huggingface에 공개된 모델은 1m(100만) step을 학습한 ckpt가 업로드 되어있습니다.
+V100 GPU를 이용해 각각 30일정도 진행했고, 
 
 모델 학습 Loss는 Step에 따라 초기 200k에 가장 빠르게 Loss가 줄어들다 400k이후로는 조금씩 감소하는 것을 볼 수 있습니다.
 
-- Base Model Loss
+- Small, Base Model Loss
 
-![KcBERT-Base Pretraining Loss](./img/image-20200719183852243.38b124.png)
+![KcBERT-Base Pretraining Loss](./img/loss.png)
 
-- Large Model Loss
-
-![KcBERT-Large Pretraining Loss](./img/image-20200806160746694.d56fa1.png)
-
-학습은 GCP의 TPU v3-8을 이용해 학습을 진행했고, 학습 시간은 Base Model 기준 2.5일정도 진행했습니다. Large Model은 약 5일정도 진행한 뒤 가장 낮은 loss를 가진 체크포인트로 정했습니다.
+학습은 V100 1대를 이용해 학습을 진행했고, 학습 시간은 Small Model 기준 30일 정도 진행했습니다. Base Model은 약 50일정도 진행한 뒤 가장 낮은 loss를 가진 체크포인트로 정했습니다.
 
 ## Example
 
 ### HuggingFace MASK LM
 
-[HuggingFace kcbert-base 모델](https://huggingface.co/beomi/kcbert-base?text=오늘은+날씨가+[MASK]) 에서 아래와 같이 테스트 해 볼 수 있습니다.
+[HuggingFace soongsil-roberta-small 모델](https://huggingface.co/jason9693/soongsil-roberta-small?text=%EC%88%AD%EC%8B%A4%EB%8C%80%ED%95%99%EA%B5%90+%EA%B8%80%EB%A1%9C%EB%B2%8C%3Cmask%3E%ED%95%99%EB%B6%80) 에서 아래와 같이 테스트 해 볼 수 있습니다.
 
-![오늘은 날씨가 "좋네요", KcBERT-Base](./img/image-20200719205919389.5670d6.png)
+![글로벌미디어, SoongsilBERT-Small](./img/soongsil-bert-small.png)
 
-물론 [kcbert-large 모델](https://huggingface.co/beomi/kcbert-large?text=오늘은+날씨가+[MASK]) 에서도 테스트 할 수 있습니다.
+물론 [base 모델](https://huggingface.co/jason9693/soongsil-roberta-base?text=%EC%88%AD%EC%8B%A4%EB%8C%80%ED%95%99%EA%B5%90+%EA%B8%80%EB%A1%9C%EB%B2%8C%3Cmask%3E%ED%95%99%EB%B6%80) 에서도 테스트 할 수 있습니다.
 
-![image-20200806160624340](./img/image-20200806160624340.58f9be.png)
+![image-20200806160624340](./img/soongsil-bert-base.png)
 
 
 
-### NSMC Binary Classification
+### Finetuning Result
 
-[네이버 영화평 코퍼스](https://github.com/e9t/nsmc) 데이터셋을 대상으로 Fine Tuning을 진행해 성능을 간단히 테스트해보았습니다.
+> 다양한 Downstream Task에 대해 테스트를 진행하고 공개할 예정입니다.
 
-> - Base Model을 Fine Tune하는 코드는 [이 Colab 링크](https://colab.research.google.com/gist/Beomi/c26cf67f9fb717d81141c579635816b2/kcbert-nsmc.ipynb)에서 직접 실행해보실 수 있습니다.
-> - Large Model을 Fine Tune하는 코드는 [GPU버전 Colab 링크](https://colab.research.google.com/drive/1dFC0FL-521m7CL_PSd8RLKq67jgTJVhL?usp=sharing) 와 TPU버전 Colab 링크(공개예정, 작업중)에서 직접 실행해볼 수 있습니다.
->   - GPU는 P100 x1대 기준 1epoch에 2-3시간, TPU는 1epoch에 1시간 내로 소요됩니다.
->     - GPU RTX Titan x4대 기준 30분/epoch 소요됩니다.
->   - Large Model 예시 코드는 [pytorch-lightning](https://github.com/PyTorchLightning/pytorch-lightning)으로 개발했습니다.
+### 추가 MLM 샘플(Base Model)
 
-- KcBERT-Base Model 실험결과: Val acc `.8905`
+`숭실대학교 커뮤니티`의 특성에 최적화된 MLM태스크 샘플을 공유합니다.
 
-  ![KcBERT Base finetune on NSMC](./img/image-20200719201102895.ddbdfc.png)
+ ![글로벌미디어, SoongsilBERT-Small](./img/sample1.png)
 
-- KcBERT-Large Model 실험 결과: Val acc `.9089`
+ ![글로벌미디어, SoongsilBERT-Small](./img/sample2.png)
 
-  ![image-20200806190242834](./img/image-20200806190242834.56d6ee.png)
-
-> 더 다양한 Downstream Task에 대해 테스트를 진행하고 공개할 예정입니다.
+ ![글로벌미디어, SoongsilBERT-Small](./img/sample3.png)
 
 
 
 ## Acknowledgement
 
-KcBERT Model을 학습하는 GCP/TPU 환경은 [TFRC](https://www.tensorflow.org/tfrc?hl=ko) 프로그램의 지원을 받았습니다.
+Soongsil BERT Model을 학습하는 NIA의 [AI Hub 고성능 컴퓨팅 지원사업](https://aihub.or.kr/node/254) 프로그램의 지원을 받았습니다.
 
-모델 학습 과정에서 많은 조언을 주신 [Monologg](https://github.com/monologg/) 님 감사합니다 :)
+모델 학습 과정에서 많은 조언을 주신 [Beomi](https://github.com/Beomi)님, [Monologg](https://github.com/monologg/) 님 감사합니다 :)
 
 ## Reference
 
@@ -269,14 +245,15 @@ KcBERT Model을 학습하는 GCP/TPU 환경은 [TFRC](https://www.tensorflow.org
 
 - [BERT by Google](https://github.com/google-research/bert)
 - [KoBERT by SKT](https://github.com/SKTBrain/KoBERT)
+- [KcBERT](https://github.com/Beomi/KcBERT)
 - [KoELECTRA by Monologg](https://github.com/monologg/KoELECTRA/)
-
 - [Transformers by Huggingface](https://github.com/huggingface/transformers)
 - [Tokenizers by Hugginface](https://github.com/huggingface/tokenizers)
 
 ### Papers
 
 - [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805)
+- [RoBERTa: A Robustly Optimized BERT Pretraining Approach](https://arxiv.org/abs/1907.11692)
 
 ### Blogs
 
