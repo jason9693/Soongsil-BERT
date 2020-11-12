@@ -60,7 +60,8 @@ model = AutoModelForMaskedLM.from_pretrained("jason9693/soongsil-roberta-base")
 3. 캠퍼스픽
 4. 숭실대학교 dcinside
 5. 숭실대학교 각 학과 공지사항
-6. 국립국어원 말뭉치 (Web, 구어체)
+6. 국립국어원(2020). [국립국어원 구어 말뭉치](https://corpus.korean.go.kr)(버전 1.0).
+7. 국립국어원(2020). [국립국어원 웹 말뭉치](https://corpus.korean.go.kr)(버전 1.0).
 
 데이터 사이즈는 텍스트만 추출시 **약 20GB이며, 2억개 이상의 문장**으로 이뤄져 있습니다.
 
