@@ -12,7 +12,7 @@ Soongsil BERT 를 Google Colab에서 사전학습을 진행할 수 있는 튜토
 토크나이징 코드 : 공개 예정
 
 Down Stream Task 학습 예제
-- [NSMC 학습 예제](###nsmc-binary-classification)
+- [NSMC 학습 예제](#nsmc-binary-classification)
 - 추가 예정
 
 ---
@@ -240,7 +240,7 @@ V100 GPU를 이용해 각각 30일정도 진행했고,
 
 > Soongsil-BERT small 모델을 Fine tuning한 코드는 [이 Colab 링크](https://colab.research.google.com/drive/1zWxkWHd_20-iacdb0PpcBi4GbTJlrOj0?usp=sharing)를 통해 직접 실행하실 수 있습니다.
 
-Soongsil-BERT small 실험 결과: Val acc `0.9034`
+Soongsil-BERT small 실험 결과: Val acc `.9034`
 ```
  100.00% [391/391 00:50<00:00]
 ***** Eval results on test dataset *****
