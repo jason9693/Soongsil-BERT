@@ -7,7 +7,7 @@
 Soongsil BERT 를 Google Colab에서 사전학습을 진행할 수 있는 튜토리얼을 제공합니다! 아래 버튼을 눌러보세요.(미완성)
 
 <a href="">  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-</a> : 한국어 NSMC 
+</a> : 공개 예정
 
 토크나이징 코드 : 공개 예정
 
