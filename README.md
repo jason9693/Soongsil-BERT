@@ -7,11 +7,13 @@
 Soongsil BERT 를 Google Colab에서 사전학습을 진행할 수 있는 튜토리얼을 제공합니다! 아래 버튼을 눌러보세요.(미완성)
 
 <a href="">  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-</a> : 공개 예정
+</a> : 한국어 NSMC 
 
 토크나이징 코드 : 공개 예정
 
-Down Stream Task 학습 예제 : 공개 예정
+Down Stream Task 학습 예제
+- [NSMC 학습 예제](###nsmc-binary-classification)
+- 추가 예정
 
 ---
 
@@ -232,7 +234,18 @@ V100 GPU를 이용해 각각 30일정도 진행했고,
 
  ![글로벌미디어, SoongsilBERT-Small](./img/sample3.png)
 
+### NSMC Binary Classification
 
+[네이버 영화평 코퍼스](https://github.com/e9t/nsmc) 데이터셋을 대상으로 Fine Tuning을 진행해 성능을 테스트해보았습니다.
+
+> Soongsil-BERT small 모델을 Fine tuning한 코드는 [이 Colab 링크](https://colab.research.google.com/drive/1zWxkWHd_20-iacdb0PpcBi4GbTJlrOj0?usp=sharing)를 통해 직접 실행하실 수 있습니다.
+
+Soongsil-BERT small 실험 결과: Val acc `0.9034`
+```
+ 100.00% [391/391 00:50<00:00]
+***** Eval results on test dataset *****
+  acc = 0.9033742024521472
+```
 
 ## Acknowledgement
 
