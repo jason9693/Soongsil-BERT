@@ -238,13 +238,15 @@ V100 GPU를 이용해 각각 30일정도 진행했고,
 
 [네이버 영화평 코퍼스](https://github.com/e9t/nsmc) 데이터셋을 대상으로 Fine Tuning을 진행해 성능을 테스트해보았습니다.
 
-> Soongsil-BERT small 모델을 Fine tuning한 코드는 [이 Colab 링크](https://colab.research.google.com/drive/1zWxkWHd_20-iacdb0PpcBi4GbTJlrOj0?usp=sharing)를 통해 직접 실행하실 수 있습니다.
+> Soongsil-BERT small 모델을 Fine tuning한 코드는 아래 링크를 통해 직접 실행하실 수 있습니다.
+> - [base 모델](https://colab.research.google.com/drive/1Js24ps3JvsN-WO9DURzueTUeCmg_BP-g?usp=sharing)
+> - [small 모델]((https://colab.research.google.com/drive/1zWxkWHd_20-iacdb0PpcBi4GbTJlrOj0?usp=sharing))
 
-Soongsil-BERT small 실험 결과: Val acc `.9034`
+Soongsil-BERT base 실험 결과: Val acc `.9118`
 ```
- 100.00% [391/391 00:50<00:00]
+  100.00% [391/391 02:58<00:00]
 ***** Eval results on test dataset *****
-  acc = 0.9033742024521472
+  acc = 0.911754705282317
 ```
 
 ## Acknowledgement
