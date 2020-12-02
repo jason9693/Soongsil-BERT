@@ -219,11 +219,6 @@ V100 GPU를 이용해 각각 30일정도 진행했고,
 ![image-20200806160624340](./img/soongsil-bert-base.png)
 
 
-
-### Finetuning Result
-
-> 다양한 Downstream Task에 대해 테스트를 진행하고 공개할 예정입니다.
-
 ### 추가 MLM 샘플(Base Model)
 
 `숭실대학교 커뮤니티`의 특성에 최적화된 MLM태스크 샘플을 공유합니다.
