@@ -235,7 +235,7 @@ V100 GPU를 이용해 각각 30일정도 진행했고,
 
 > Soongsil-BERT small 모델을 Fine tuning한 코드는 아래 링크를 통해 직접 실행하실 수 있습니다.
 > - [base 모델](https://colab.research.google.com/drive/1Js24ps3JvsN-WO9DURzueTUeCmg_BP-g?usp=sharing)
-> - [small 모델]((https://colab.research.google.com/drive/1zWxkWHd_20-iacdb0PpcBi4GbTJlrOj0?usp=sharing))
+> - [small 모델](https://colab.research.google.com/drive/1zWxkWHd_20-iacdb0PpcBi4GbTJlrOj0?usp=sharing)
 
 Soongsil-BERT base 실험 결과: Val acc `.9118`
 ```
