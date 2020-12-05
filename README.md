@@ -233,7 +233,7 @@ V100 GPU를 이용해 각각 30일정도 진행했고,
 
 [네이버 영화평 코퍼스](https://github.com/e9t/nsmc) 데이터셋을 대상으로 Fine Tuning을 진행해 성능을 테스트해보았습니다.
 
-> Soongsil-BERT small 모델을 Fine tuning한 코드는 아래 링크를 통해 직접 실행하실 수 있습니다.
+> Soongsil-BERT small 모델을 Fine tuning한 코드는 아래 링크를 통해 직접 학습을 진행하실 수 있습니다.
 > - [base 모델](https://colab.research.google.com/drive/1Js24ps3JvsN-WO9DURzueTUeCmg_BP-g?usp=sharing)
 > - [small 모델](https://colab.research.google.com/drive/1zWxkWHd_20-iacdb0PpcBi4GbTJlrOj0?usp=sharing)
 
@@ -243,6 +243,8 @@ Soongsil-BERT base 실험 결과: Val acc `.9118`
 ***** Eval results on test dataset *****
   acc = 0.911754705282317
 ```
+
+또한 Huggingface [SoongsilBERT-nsmc-base](https://huggingface.co/jason9693/SoongsilBERT-nsmc-base?text=%EB%82%98%EB%8A%94+%EC%9D%B4+%EC%98%81%ED%99%94%EA%B0%80+%EB%84%88%EB%AC%B4+%EC%A2%8B%EC%95%98%EB%8B%A4.+2%EC%8B%9C%EA%B0%84%EC%9D%B4%EB%82%98+%ED%91%B9+%EC%9E%98+%EC%88%98+%EC%9E%88%EC%97%88%EA%B8%B0+%EB%95%8C%EB%AC%B8%EC%9D%B4%EB%8B%A4.&fbclid=IwAR24jn31XroyzzZxwzHHwQ7EBTpjj6zx6EG-YvsmujlGwwZo6Rzv1YZh58M)를 통해 직접 모델을 테스트 해보실 수 있습니다.
 
 ## Acknowledgement
 
