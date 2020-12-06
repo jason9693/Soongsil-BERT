@@ -6,7 +6,7 @@
 
 Soongsil BERT 를 Google Colab에서 사전학습을 진행할 수 있는 튜토리얼을 제공합니다! 아래 버튼을 눌러보세요.(미완성)
 
-Down Stream Task 학습 예제
+### Down Stream Task 학습
 
 - [NSMC 학습 예제](#nsmc-binary-classification)
 - [Korean-Hate-Speech 학습 예제](#korean-hate-speech-detection)
