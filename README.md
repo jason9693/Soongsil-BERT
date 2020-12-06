@@ -2,18 +2,14 @@
 
 ### Soongsil Univ. Community BERT : 숭실대학교 or 대학 커뮤니티 전용 언어모델
 
-** Updates on 2020.11.06 **
+** Updates on 2020.12.06 **
 
 Soongsil BERT 를 Google Colab에서 사전학습을 진행할 수 있는 튜토리얼을 제공합니다! 아래 버튼을 눌러보세요.(미완성)
 
-<a href="">  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-</a> : 공개 예정
-
-토크나이징 코드 : 공개 예정
-
 Down Stream Task 학습 예제
+
 - [NSMC 학습 예제](#nsmc-binary-classification)
-- 추가 예정
+- [Korean-Hate-Speech 학습 예제](#korean-hate-speech-detection)
 
 ---
 
@@ -206,7 +202,7 @@ V100 GPU를 이용해 각각 30일정도 진행했고,
 
 학습은 V100 1대를 이용해 학습을 진행했고, 학습 시간은 Small Model 기준 30일 정도 진행했습니다. Base Model은 약 50일정도 진행한 뒤 가장 낮은 loss를 가진 체크포인트로 정했습니다.
 
-## Example
+## Pretraining Example
 
 ### HuggingFace MASK LM
 
@@ -229,22 +225,31 @@ V100 GPU를 이용해 각각 30일정도 진행했고,
 
  ![글로벌미디어, SoongsilBERT-Small](./img/sample3.png)
 
+## Finetuning Example
+
 ### NSMC Binary Classification
 
-[네이버 영화평 코퍼스](https://github.com/e9t/nsmc) 데이터셋을 대상으로 Fine Tuning을 진행해 성능을 테스트해보았습니다.
+[네이버 영화평 코퍼스](https://github.com/e9t/nsmc) 데이터셋을 대상으로 Fine Tuning을 진행해 예제학습을 진행해 보았습니다.
 
 > Soongsil-BERT small 모델을 Fine tuning한 코드는 아래 링크를 통해 직접 학습을 진행하실 수 있습니다.
-> - [base 모델](https://colab.research.google.com/drive/1Js24ps3JvsN-WO9DURzueTUeCmg_BP-g?usp=sharing)
-> - [small 모델](https://colab.research.google.com/drive/1zWxkWHd_20-iacdb0PpcBi4GbTJlrOj0?usp=sharing)
+> - base 모델 :  <a href="https://colab.research.google.com/drive/1Js24ps3JvsN-WO9DURzueTUeCmg_BP-g?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="base"/></a>
+> - small 모델 : <a href="https://colab.research.google.com/drive/1zWxkWHd_20-iacdb0PpcBi4GbTJlrOj0?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="base"/></a>
 
-Soongsil-BERT base 실험 결과: Val acc `.9118`
-```
-  100.00% [391/391 02:58<00:00]
-***** Eval results on test dataset *****
-  acc = 0.911754705282317
-```
+NSMC모델의 경우, Huggingface [SoongsilBERT-nsmc-base](https://huggingface.co/jason9693/SoongsilBERT-nsmc-base?text=%EB%82%98%EB%8A%94+%EC%9D%B4+%EC%98%81%ED%99%94%EA%B0%80+%EB%84%88%EB%AC%B4+%EC%A2%8B%EC%95%98%EB%8B%A4.+2%EC%8B%9C%EA%B0%84%EC%9D%B4%EB%82%98+%ED%91%B9+%EC%9E%98+%EC%88%98+%EC%9E%88%EC%97%88%EA%B8%B0+%EB%95%8C%EB%AC%B8%EC%9D%B4%EB%8B%A4.&fbclid=IwAR24jn31XroyzzZxwzHHwQ7EBTpjj6zx6EG-YvsmujlGwwZo6Rzv1YZh58M)를 통해 직접 모델을 테스트 해보실 수 있습니다.
 
-또한 Huggingface [SoongsilBERT-nsmc-base](https://huggingface.co/jason9693/SoongsilBERT-nsmc-base?text=%EB%82%98%EB%8A%94+%EC%9D%B4+%EC%98%81%ED%99%94%EA%B0%80+%EB%84%88%EB%AC%B4+%EC%A2%8B%EC%95%98%EB%8B%A4.+2%EC%8B%9C%EA%B0%84%EC%9D%B4%EB%82%98+%ED%91%B9+%EC%9E%98+%EC%88%98+%EC%9E%88%EC%97%88%EA%B8%B0+%EB%95%8C%EB%AC%B8%EC%9D%B4%EB%8B%A4.&fbclid=IwAR24jn31XroyzzZxwzHHwQ7EBTpjj6zx6EG-YvsmujlGwwZo6Rzv1YZh58M)를 통해 직접 모델을 테스트 해보실 수 있습니다.
+### Korean Hate Speech Detection
+
+[한국어 혐오분류 발화 데이터셋](https://www.aclweb.org/anthology/2020.socialnlp-1.4/)을 대상으로 Fine Tuning을 진행해 예제학습을 진행해 보았습니다.
+
+> Soongsil-BERT small 모델을 Fine tuning한 코드는 아래 링크를 통해 직접 학습을 진행하실 수 있습니다.
+>
+> - base 모델 :  <a href="https://colab.research.google.com/drive/17UBM7pYswxbE1trN8xHLwc__rkNZmhK1?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="base"/></a>
+
+### 예제학습 성능 및 결과확인
+
+저희가 진행한 예제학습 태스크들에 대한 결과는 [이 링크](./finetune)의 결과표를 참고해 주세요.
+
+
 
 ## Acknowledgement
 
