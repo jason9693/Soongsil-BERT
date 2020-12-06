@@ -231,7 +231,7 @@ V100 GPU를 이용해 각각 30일정도 진행했고,
 
 [네이버 영화평 코퍼스](https://github.com/e9t/nsmc) 데이터셋을 대상으로 Fine Tuning을 진행해 예제학습을 진행해 보았습니다.
 
-> Soongsil-BERT small 모델을 Fine tuning한 코드는 아래 링크를 통해 직접 학습을 진행하실 수 있습니다.
+> Soongsil-BERT 모델을 Fine tuning한 코드는 아래 링크를 통해 직접 학습을 진행하실 수 있습니다.
 > - base 모델 :  <a href="https://colab.research.google.com/drive/1Js24ps3JvsN-WO9DURzueTUeCmg_BP-g?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="base"/></a>
 > - small 모델 : <a href="https://colab.research.google.com/drive/1zWxkWHd_20-iacdb0PpcBi4GbTJlrOj0?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="base"/></a>
 
@@ -241,7 +241,7 @@ NSMC모델의 경우, Huggingface [SoongsilBERT-nsmc-base](https://huggingface.c
 
 [한국어 혐오분류 발화 데이터셋](https://www.aclweb.org/anthology/2020.socialnlp-1.4/)을 대상으로 Fine Tuning을 진행해 예제학습을 진행해 보았습니다.
 
-> Soongsil-BERT small 모델을 Fine tuning한 코드는 아래 링크를 통해 직접 학습을 진행하실 수 있습니다.
+> Soongsil-BERT 모델을 Fine tuning한 코드는 아래 링크를 통해 직접 학습을 진행하실 수 있습니다.
 >
 > - base 모델 :  <a href="https://colab.research.google.com/drive/17UBM7pYswxbE1trN8xHLwc__rkNZmhK1?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="base"/></a>
 
