@@ -32,7 +32,7 @@ Soongsil BERT는 Huggingface의 Transformers 라이브러리를 통해 간편히
 - `soynlp ~= 0.0.493`
 
 ```python
-from transformers import AutoTokenizer, AutoModelWithLMHead
+from transformers import AutoTokenizer, AutoModelForMaskedLM
 
 # Small Model (220MB)
 
