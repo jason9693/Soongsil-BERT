@@ -4,7 +4,7 @@
 
 ** Updates on 2020.12.06 **
 
-Soongsil BERT 를 Google Colab에서 사전학습을 진행할 수 있는 튜토리얼을 제공합니다! 아래 버튼을 눌러보세요.(미완성)
+Soongsil BERT 를 Google Colab에서 학습을 진행할 수 있도록 하는 튜토리얼을 제공합니다! 아래 Down Stream Task 항목을 참고해 주세요.
 
 ### Down Stream Task 학습
 
