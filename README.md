@@ -36,15 +36,15 @@ from transformers import AutoTokenizer, AutoModelForMaskedLM
 
 # Small Model (220MB)
 
-tokenizer = AutoTokenizer.from_pretrained("jason9693/soongsil-roberta-small")
+tokenizer = AutoTokenizer.from_pretrained("jason9693/soongsil-bert-small")
 
-model = AutoModelForMaskedLM.from_pretrained("jason9693/soongsil-roberta-small")
+model = AutoModelForMaskedLM.from_pretrained("jason9693/soongsil-bert-small")
 
 # Base Model (370M)
 
-tokenizer = AutoTokenizer.from_pretrained("jason9693/soongsil-roberta-base")
+tokenizer = AutoTokenizer.from_pretrained("jason9693/soongsil-bert-base")
 
-model = AutoModelForMaskedLM.from_pretrained("jason9693/soongsil-roberta-base")
+model = AutoModelForMaskedLM.from_pretrained("jason9693/soongsil-bert-base")
 ```
 
 ## Train Data & Preprocessing
@@ -196,7 +196,7 @@ V100 GPU를 이용해 각각 30일정도 진행했고,
 
 - Small, Base Model Loss
 
-![KcBERT-Base Pretraining Loss](./img/loss.png)
+![KcBERT-Base Pretraining Loss](../img/loss.png)
 
 학습은 V100 1대를 이용해 학습을 진행했고, 학습 시간은 Small Model 기준 30일 정도 진행했습니다. Base Model은 약 50일정도 진행한 뒤 가장 낮은 loss를 가진 체크포인트로 정했습니다.
 
@@ -206,22 +206,22 @@ V100 GPU를 이용해 각각 30일정도 진행했고,
 
 [HuggingFace soongsil-roberta-small 모델](https://huggingface.co/jason9693/soongsil-roberta-small?text=%EC%88%AD%EC%8B%A4%EB%8C%80%ED%95%99%EA%B5%90+%EA%B8%80%EB%A1%9C%EB%B2%8C%3Cmask%3E%ED%95%99%EB%B6%80) 에서 아래와 같이 테스트 해 볼 수 있습니다.
 
-![글로벌미디어, SoongsilBERT-Small](./img/soongsil-bert-small.png)
+![글로벌미디어, SoongsilBERT-Small](../img/soongsil-bert-small.png)
 
 물론 [base 모델](https://huggingface.co/jason9693/soongsil-roberta-base?text=%EC%88%AD%EC%8B%A4%EB%8C%80%ED%95%99%EA%B5%90+%EA%B8%80%EB%A1%9C%EB%B2%8C%3Cmask%3E%ED%95%99%EB%B6%80) 에서도 테스트 할 수 있습니다.
 
-![image-20200806160624340](./img/soongsil-bert-base.png)
+![image-20200806160624340](../img/soongsil-bert-base.png)
 
 
 ### 추가 MLM 샘플(Base Model)
 
 `숭실대학교 커뮤니티`의 특성에 최적화된 MLM태스크 샘플을 공유합니다.
 
- ![글로벌미디어, SoongsilBERT-Small](./img/sample1.png)
+ ![글로벌미디어, SoongsilBERT-Small](../img/sample1.png)
 
- ![글로벌미디어, SoongsilBERT-Small](./img/sample2.png)
+ ![글로벌미디어, SoongsilBERT-Small](../img/sample2.png)
 
- ![글로벌미디어, SoongsilBERT-Small](./img/sample3.png)
+ ![글로벌미디어, SoongsilBERT-Small](../img/sample3.png)
 
 ## Finetuning Example
 
